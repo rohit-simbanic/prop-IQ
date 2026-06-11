@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+
+  /* Custom HSL-based Theme Colors (Cobalt/Steel Blue) */
+  --color-brand-50: hsl(211 60% 98%);
+  --color-brand-100: hsl(211 50% 94%);
+  --color-brand-200: hsl(211 45% 86%);
+  --color-brand-300: hsl(211 40% 75%);
+  --color-brand-400: hsl(211 35% 60%);
+  --color-brand-500: hsl(211 54% 37%); /* Primary Cobalt/Steel Blue */
+  --color-brand-600: hsl(211 54% 32%);
+  --color-brand-700: hsl(211 54% 27%);
+  --color-brand-800: hsl(211 54% 22%);
+  --color-brand-900: hsl(211 54% 17%);
+
+  --color-slate-950: hsl(222.2 84% 4.9%);
+
+  --animate-fade-in-up: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in: fade-in 0.4s ease-out forwards;
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 30s linear infinite;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Base custom styles */
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+body {
+  @apply bg-white text-slate-900 transition-colors duration-300;
+  font-family: var(--font-sans);
+}
+
+.dark body {
+  @apply bg-black text-[#f0f2f1];
+}
+
+/* Glassmorphism utility classes */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-neutral-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-neutral-700 rounded-full hover:bg-slate-400 dark:hover:bg-neutral-600;
+}
+
+/* Leaflet Map Customizations */
+.leaflet-container {
+  font-family: var(--font-sans) !important;
+  border-radius: 1rem;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Map Dark Theme Invert Filter */
+.dark .leaflet-tile-pane {
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+.leaflet-popup-content-wrapper {
+  @apply !bg-white dark:!bg-[#121514] !text-slate-900 dark:!text-[#f0f2f1] !rounded-xl !shadow-xl !border !border-slate-100 dark:!border-white/5;
+}
+
+.leaflet-popup-tip {
+  @apply !bg-white dark:!bg-[#121514];
+}
+
+.leaflet-control-zoom {
+  @apply !border-none !shadow-lg !rounded-xl !overflow-hidden;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+  @apply !bg-white dark:!bg-[#121514] !text-slate-800 dark:!text-slate-200 !border-slate-100 dark:!border-white/5;
+}
+
+/* Swiper.js Overrides for Luxury Dot Indicators */
+.swiper-pagination-bullet {
+  @apply !bg-slate-400 dark:!bg-neutral-600 !opacity-60 !transition-all !duration-300;
+}
+
+.swiper-pagination-bullet-active {
+  @apply !bg-brand-500 !w-5 !rounded-full !opacity-100;
+}
+
+/* Premium Marquee Fade Out Mask */
+.mask-marquee {
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
