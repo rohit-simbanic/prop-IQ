@@ -94,7 +94,7 @@ The project has a pre-configured routing file (`vercel.json`) and a GitHub Actio
 To enable automated CD deployments on push to `master`:
 1. Connect your repository to Vercel.
 2. Define the following secrets in GitHub **Settings > Secrets and Variables > Actions**:
-   - `VERCEL_TOKEN_PROP`: Your Vercel Personal Access Token.
+   - `VERCEL_TOKEN`: Your Vercel Personal Access Token.
    - `VERCEL_ORG_ID`: Your Vercel Organization ID.
    - `VERCEL_PROJECT_ID`: Your Vercel Project ID.
 
