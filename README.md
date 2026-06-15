@@ -31,7 +31,7 @@ This project is built from the ground up based on the following Figma design sys
 ## 📁 Key Folder Structure
 
 ```text
-dating_site/
+prop-iq/
 ├── .husky/                  # Git pre-commit hook scripts
 ├── .storybook/              # Storybook v8 configuration (main.ts, preview.tsx)
 ├── src/
